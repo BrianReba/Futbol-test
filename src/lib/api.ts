@@ -3,7 +3,9 @@ import type { Match, Player } from "@/types"
 const api = {
 	match: {
 		list: async (): Promise<Match[]> => {
-			return fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRXreKNytS9fxcNnKadpzCF07_zE4eJ7KqXD3HfOjcpsZOTNQeyBDiCScm4QVwRKCOxEnjrG1VNkwNS/pub?output=tsv')
+			return fetch(process.env.SECRET,
+				{next: {tags: ['matches']}},
+			)
 				.then((res) => res.text()) //get text .tsv
 				.then(text => { //parse
 					return text.split('\n').slice(1).map(row => {
