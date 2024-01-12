@@ -18,7 +18,8 @@ export default async function BuilderPage() {
 		for (const player of players) {
 			searchParams.append('players', player as string)
 		}
-			redirect(`/builder/match?${searchParams.toString()}`);
+		redirect(`/builder/match?${searchParams.toString()}`);
+		
 		
 	}
 

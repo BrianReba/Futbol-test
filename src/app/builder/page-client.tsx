@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/table"
 import { Player } from "@/types"
 import { useState } from "react"
+import { toast } from "sonner"
 
 export default function BuilderPageClient({players: initialPlayers, onCreate}: {players: Player[], onCreate: (formData: FormData) => void}) {
 
@@ -27,6 +28,10 @@ export default function BuilderPageClient({players: initialPlayers, onCreate}: {
 		setPlayers((players) => players.concat({ name: formData.get('player') as string, score: 0, matches: 0 }))
 		
 		event.currentTarget.reset()
+	}
+
+	function handleSonner() {
+  	  toast('Equipo 1 y Equipo 2 creados')
 	}
 
 	return (
@@ -52,8 +57,8 @@ export default function BuilderPageClient({players: initialPlayers, onCreate}: {
         </TableRow>
         ))}
 			</TableBody>
-		</Table>
-			<Button>Crear equipos</Button>
+				</Table>
+			<Button onClick={handleSonner}>Crear equipos</Button>
 		</form>
 		</section>
   )

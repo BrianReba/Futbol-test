@@ -10,9 +10,13 @@ import {
 	TableFooter
 } from "@/components/ui/table"
 
-export default async function MatchPage({ searchParams: { players: draft } }: { searchParams: { players: string[] } }) {   {/*Type annotation*/}
-	const roster = await api.player.list()
-	const players = draft.map(name => roster.find(player => player.name === name) ?? {
+export default async function MatchPage({ searchParams: { players: draft } }: { searchParams: { players: string[] } }) {
+  {/*Type annotation*/ }
+  const roster = await api.player.list()
+
+  {/* order teams by score weight */ }
+  const players = draft.map(
+    name => roster.find(player => player.name === name) ?? {
 		name,
 		matches: 0,
 		score: 0
@@ -27,8 +31,8 @@ export default async function MatchPage({ searchParams: { players: draft } }: { 
 		} else {
 			team1.push(player)
 		}
-	}
-
+  }
+  
 	return (
     <Table className="m-auto max-w-md border">
       <TableHeader>
@@ -41,7 +45,6 @@ export default async function MatchPage({ searchParams: { players: draft } }: { 
         {Array.from({length: Math.max(team1.length, team2.length)}).map((_, index) => (
           <TableRow key={index}>
             <TableCell> 
-              {/* order teams by score weight */}
               {team1[index]?.name ? `${team1[index].name} (${team1[index].score})` : "-"}
             </TableCell>
             <TableCell className="text-right">

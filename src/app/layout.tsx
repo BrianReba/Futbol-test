@@ -2,10 +2,11 @@ import type {Metadata} from "next";
 
 import "./globals.css";
 import Link from "next/link";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "Futbol",
-  description: "Futbol champagne",
+  title: "Futbolitos",
+  description: "Futbol Reina Mora",
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
@@ -30,7 +31,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             </ul>
           </nav>
         </header>
-        <main className="py-8">{children}</main>
+        <main className="py-8">
+          {children}
+        </main>
+        <Toaster />
         <footer className="text-center leading-[4rem] opacity-70">
           © {new Date().getFullYear()} Reba 😎
         </footer>
