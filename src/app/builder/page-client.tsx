@@ -29,10 +29,29 @@ export default function BuilderPageClient({players: initialPlayers, onCreate}: {
 		
 		event.currentTarget.reset()
 	}
+	// Toast
+	function handleSonner(event: React.MouseEvent<HTMLButtonElement>) {
+    // Get all checkboxes with player value
+    const checkboxes = document.getElementsByName('player');
 
-	function handleSonner() {
-  	  toast('Equipo 1 y Equipo 2 creados')
+    // Count how many are checked
+    let count = 0;
+    for (let i = 0; i < checkboxes.length; i++) {
+        if ((checkboxes[i] as HTMLInputElement).checked) {
+            count++;
+        }
+    }
+
+    // Display toast based on count
+    if (count >= 10) {
+      toast.success('Equipo 1 y Equipo 2 creados');
+		} else {
+			event.preventDefault()
+			toast.error('Por favor, selecciona al menos 10 jugadores para crear los equipos');
+			
+    }
 	}
+
 
 	return (
 		<section className='m-auto max-w-md grid gap-4'>

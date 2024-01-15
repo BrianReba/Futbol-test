@@ -34,7 +34,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <main className="py-8">
           {children}
         </main>
-        <Toaster />
+        <Toaster expand={true} richColors />
         <footer className="text-center leading-[4rem] opacity-70">
           © {new Date().getFullYear()} Reba 😎
         </footer>
