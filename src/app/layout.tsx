@@ -28,6 +28,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
               <li>
                 <Link href="/builder">Armador de equipos</Link>
               </li>
+              <li>
+                <Link href="/auth/register">Register</Link>
+              </li>
             </ul>
           </nav>
         </header>
