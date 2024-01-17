@@ -19,13 +19,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </Link>
           <nav>
             <ul className="flex gap-4 opacity-70">
-              <li>
+              <li className="transition-all duration-200 transform hover:scale-105 cursor-pointer">
                 <Link href="/">Partidos</Link>
               </li>
-              <li>
+              <li className="transition-all duration-200 transform hover:scale-105 cursor-pointer">
                 <Link href="/players">Jugadores</Link>
               </li>
-              <li>
+              <li className="transition-all duration-200 transform hover:scale-105 cursor-pointer">
                 <Link href="/builder">Armador de equipos</Link>
               </li>
             </ul>
